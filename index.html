@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Calculator </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="displayCont">
+        <div class="display"> </div>
+        <button id="clear" onClick="display(this.id)"> C </button>
+    </div>
+    <div class="numberCont"> 
+        <div class="row">
+            <button id="1" onClick="storeNum(this.id)">1</button>
+            <button id="2" onClick="storeNum(this.id)">2</button>
+            <button id="3" onClick="storeNum(this.id)">3</button>
+            <button id="+" onClick="storeOperator(this.id)">+</button>
+        </div>
+        <div class="row">
+            <button id="4" onClick="storeNum(this.id)">4</button>
+            <button id="5" onClick="storeNum(this.id)">5</button>
+            <button id="6" onClick="storeNum(this.id)">6</button>
+            <button id="-" onClick="storeOperator(this.id)">-</button>
+        </div>
+        <div class="row">
+            <button id="7" onClick="storeNum(this.id)">7</button>
+            <button id="8" onClick="storeNum(this.id)">8</button>
+            <button id="9" onClick="storeNum(this.id)">9</button>
+            <button id="*" onClick="storeOperator(this.id)">x</button>
+        </div>
+        <div class="row">
+            <button class="zero" id="0" onClick="storeNum(this.id)">0</button> 
+            <button id="equals" onClick="operate()">=</button>   
+            <button id="/" onClick="storeOperator(this.id)">/</button>
+        </div>  
+    </div>
+</body>

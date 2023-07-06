@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+}
+.displayCont{
+    display:flex;
+
+}
+.display{
+    flex: 0 0 66%;
+}
+#clear{
+    flex: 0 0 33%;
+}
+.numberCont{
+    display: flex;
+    flex-direction: column;
+    
+}
+.row{
+    display: flex;
+}
+
+.zero{
+    flex: 0 0 66%;
+}
+
+#equals{
+    flex: 0 0 33%;
+}
