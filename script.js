@@ -1,6 +1,8 @@
 let num1 = "";
 let num2 = ""; 
 let operator = "";
+let num1Dec = false;
+let num2Dec = false;
 let chaining = false; //used to show if you are chaining operations
 
 const displayContent = document.querySelector(".display");
@@ -16,7 +18,6 @@ function subtract(firstNum, secondNum) {
 
 function multiply(...numbers) {
   let product = 1;
-  console.log(numbers);
   for (const number of numbers){
     product = product * number;
   }
@@ -58,58 +59,73 @@ function operate(){
     }
     num2 = "";
     chaining = true; 
+    document.getElementById("decimal").disabled = false;
 }
 
-function display(id){
+function display(value){
     //const display = document.querySelector(".display");
 
-    if(id == "clear"){
+    if(value == "clearEverything"){
         num1 = "";
         num2 = "";
         operator = "";
         chaining = false; 
-        console.log("after clear:" + num1 + num2 + operator);
-        displayContent.textContent = "";
+        document.getElementById("decimal").disabled = false;
+        displayContent.textContent = "0";
+    }
+    else if(value == "clear"){
+        displayContent.textContent = "0";
+        document.getElementById("decimal").disabled = false;
+        if(num2 != "" && !chaining){
+            num2 = "";
+            displayContent.textContent = operator;
+        }
+        else if(operator != ""){
+            operator = "";
+            displayContent.textContent = num1;
+        }
+        else if(num1 != "" && !chaining){
+            num1 = "";
+            displayContent.textContent = "0";
+        }
+        else{
+            display("clearEverything");
+        }
     }
     else{
-        displayContent.textContent = id;
+        displayContent.textContent = value;
     }
 }
 
-function storeNum(id){
+function storeNum(value){
+    if(value == "."){
+        document.getElementById("decimal").disabled = true;
+    }
+
     if(!chaining && operator == ""){
-        num1 += id;
+        num1 += value;
         display(num1);
+        console.log(num1);
     }
     else if(chaining){
         display("clear");
-        storeNum(id);
+        storeNum(value);
     }
     else{
-        num2 += id;
+        num2 += value;
         display(num2);
     }
-
-    // if(num1 == undefined || num1 == ""){
-    //     num1 = id;
-    //     console.log(num1);
-    // }
-    // else{
-    //     num2 += id;
-    //     console.log(num2);
-    // }
-    //display(id);
 }
 
-function storeOperator(id){
+function storeOperator(value){
     if(operator != undefined || operator != ""){
         operate();
-        operator = id;
+        operator = value;
     }
     else{
-        operator = id;
+        operator = value;
         console.log(operator);
     }
     chaining = false;
-    display(id);
+    display(value);
 }

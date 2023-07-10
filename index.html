@@ -5,35 +5,52 @@
     <title> Calculator </title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style> 
+        @font-face{
+        font-family: digital; 
+        src: url(fonts/digital-7.ttf);
+        }
+        @font-face{
+            font-family: roboto;
+            src: url(fonts/Roboto-Regular.ttf);
+        }
+</style>
 </head>
 <body>
-    <div class="displayCont">
-        <div class="display"> </div>
-        <button id="clear" onClick="display(this.id)"> C </button>
-    </div>
-    <div class="numberCont"> 
-        <div class="row">
-            <button id="1" onClick="storeNum(this.id)">1</button>
-            <button id="2" onClick="storeNum(this.id)">2</button>
-            <button id="3" onClick="storeNum(this.id)">3</button>
-            <button id="+" onClick="storeOperator(this.id)">+</button>
+    <div class="container">
+        <div class="displayCont">
+            <div class="display">0</div>
         </div>
-        <div class="row">
-            <button id="4" onClick="storeNum(this.id)">4</button>
-            <button id="5" onClick="storeNum(this.id)">5</button>
-            <button id="6" onClick="storeNum(this.id)">6</button>
-            <button id="-" onClick="storeOperator(this.id)">-</button>
+        <div class="numberCont"> 
+            <div class="row">
+                <button class="numberButton" value="clearEverything" id="clearEverything" onClick="display(this.value)"> CE </button>
+                <button class="numberButton" value="/" id="divide" onClick="storeOperator(this.value)">/</button>
+                <button class="numberButton" value="*" id="multiply" onClick="storeOperator(this.value)">x</button>
+            </div>
+            <div class="row">
+                <button class="numberButton" value="7" id="seven" onClick="storeNum(this.value)">7</button>
+                <button class="numberButton" value="8" id="eight" onClick="storeNum(this.value)">8</button>
+                <button class="numberButton" value="9" id="nine" onClick="storeNum(this.value)">9</button>
+                <button class="numberButton" value="clear" id="clear" onClick="display(this.value)"> C </button>
+            </div>
+            <div class="row">
+                <button class="numberButton" value="4" id="four" onClick="storeNum(this.value)">4</button>
+                <button class="numberButton" value="5" id="five" onClick="storeNum(this.value)">5</button>
+                <button class="numberButton" value="6" id="six" onClick="storeNum(this.value)">6</button>
+                <button class="numberButton" value="-" id="subtract" onClick="storeOperator(this.value)">-</button>
+            </div>
+            <div class="row">
+                <button class="numberButton" value="1" id="one" onClick="storeNum(this.value)">1</button>
+                <button class="numberButton" value="2" id="two" onClick="storeNum(this.value)">2</button>
+                <button class="numberButton" value="3" id="three" onClick="storeNum(this.value)">3</button>
+                <button class="numberButton" value="+" id="add" onClick="storeOperator(this.value)">+</button>
+            </div>
+            <div class="row">
+                <button class="zero" value="0" id="zero" onClick="storeNum(this.value)">0</button>
+                <button class="numberButton" value="." id="decimal" onClick="storeNum(this.value)">.</button>
+                <button id="equals" onClick="operate()">=</button>   
+                
+            </div>  
         </div>
-        <div class="row">
-            <button id="7" onClick="storeNum(this.id)">7</button>
-            <button id="8" onClick="storeNum(this.id)">8</button>
-            <button id="9" onClick="storeNum(this.id)">9</button>
-            <button id="*" onClick="storeOperator(this.id)">x</button>
-        </div>
-        <div class="row">
-            <button class="zero" id="0" onClick="storeNum(this.id)">0</button> 
-            <button id="equals" onClick="operate()">=</button>   
-            <button id="/" onClick="storeOperator(this.id)">/</button>
-        </div>  
     </div>
 </body>
